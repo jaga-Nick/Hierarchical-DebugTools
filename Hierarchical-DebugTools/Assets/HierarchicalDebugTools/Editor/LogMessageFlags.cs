@@ -1,35 +1,35 @@
-// Source: https://github.com/Unity-Technologies/UnityCsReference/blob/master/Editor/Mono/LogEntries.bindings.cs
+// ソース: https://github.com/Unity-Technologies/UnityCsReference/blob/master/Editor/Mono/LogEntries.bindings.cs
 
 using System;
 
 
 
-namespace HierarchyFocusedDebugConsole {
+namespace HierarchicalDebugTools {
 
     [Flags]
     public enum LogMessageFlags : int {
 
         kNoLogMessageFlags = 0,
-        kError = 1 << 0, // Message describes an error.
-        kAssert = 1 << 1, // Message describes an assertion failure.
-        kLog = 1 << 2, // Message is a general log message.
-        kFatal = 1 << 4, // Message describes a fatal error, and that the program should now exit.
-        kAssetImportError = 1 << 6, // Message describes an error generated during asset importing.
-        kAssetImportWarning = 1 << 7, // Message describes a warning generated during asset importing.
-        kScriptingError = 1 << 8, // Message describes an error produced by script code.
-        kScriptingWarning = 1 << 9, // Message describes a warning produced by script code.
-        kScriptingLog = 1 << 10, // Message describes a general log message produced by script code.
-        kScriptCompileError = 1 << 11, // Message describes an error produced by the script compiler.
-        kScriptCompileWarning = 1 << 12, // Message describes a warning produced by the script compiler.
-        kStickyLog = 1 << 13, // Message is 'sticky' and should not be removed when the user manually clears the console window.
-        kMayIgnoreLineNumber = 1 << 14, // The scripting runtime should skip annotating the log callstack with file and line information.
-        kReportBug = 1 << 15, // When used with kFatal, indicates that the log system should launch the bug reporter.
-        kDisplayPreviousErrorInStatusBar = 1 << 16, // The message before this one should be displayed at the bottom of Unity's main window, unless there are no messages before this one.
-        kScriptingException = 1 << 17, // Message describes an exception produced by script code.
-        kDontExtractStacktrace = 1 << 18, // Stacktrace extraction should be skipped for this message.
-        kScriptingAssertion = 1 << 21, // The message describes an assertion failure in script code.
-        kStacktraceIsPostprocessed = 1 << 22, // The stacktrace has already been postprocessed and does not need further processing.
-        kIsCalledFromManaged = 1 << 23, // The message is being called from managed code.
+        kError = 1 << 0, // メッセージはエラーを表します。
+        kAssert = 1 << 1, // メッセージはアサーションの失敗を表します。
+        kLog = 1 << 2, // メッセージは一般的なログメッセージです。
+        kFatal = 1 << 4, // メッセージは致命的なエラーを表し、プログラムは終了する必要があります。
+        kAssetImportError = 1 << 6, // メッセージはアセットのインポート中に生成されたエラーを表します。
+        kAssetImportWarning = 1 << 7, // メッセージはアセットのインポート中に生成された警告を表します。
+        kScriptingError = 1 << 8, // メッセージはスクリプトコードによって生成されたエラーを表します。
+        kScriptingWarning = 1 << 9, // メッセージはスクリプトコードによって生成された警告を表します。
+        kScriptingLog = 1 << 10, // メッセージはスクリプトコードによって生成された一般的なログメッセージを表します。
+        kScriptCompileError = 1 << 11, // メッセージはスクリプトコンパイラによって生成されたエラーを表します。
+        kScriptCompileWarning = 1 << 12, // メッセージはスクリプトコンパイラによって生成された警告を表します。
+        kStickyLog = 1 << 13, // メッセージは「スティッキー」であり、ユーザーが手動でコンソールウィンドウをクリアしても削除されません。
+        kMayIgnoreLineNumber = 1 << 14, // スクリプティングランタイムは、ファイルと行の情報でログのコールスタックを注釈付けするのをスキップする必要があります。
+        kReportBug = 1 << 15, // kFatalと一緒に使用すると、ログシステムがバグレポーターを起動することを示します。
+        kDisplayPreviousErrorInStatusBar = 1 << 16, // このメッセージの前のメッセージは、その前にメッセージがない限り、Unityのメインウィンドウの下部に表示される必要があります。
+        kScriptingException = 1 << 17, // メッセージはスクリプトコードによって生成された例外を表します。
+        kDontExtractStacktrace = 1 << 18, // このメッセージではスタックトレースの抽出をスキップする必要があります。
+        kScriptingAssertion = 1 << 21, // メッセージはスクリプトコードでのアサーションの失敗を表します。
+        kStacktraceIsPostprocessed = 1 << 22, // スタックトレースはすでに後処理されており、さらなる処理は必要ありません。
+        kIsCalledFromManaged = 1 << 23, // メッセージはマネージドコードから呼び出されています。
 
         FromEditor = kDontExtractStacktrace | kMayIgnoreLineNumber | kIsCalledFromManaged,
 
