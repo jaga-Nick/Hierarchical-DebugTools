@@ -6,7 +6,7 @@ using UnityEditor;
 
 
 
-namespace HierarchyFocusedDebugConsole {
+namespace HierarchicalDebugTools {
 
     public static class ConsoleReader {
 

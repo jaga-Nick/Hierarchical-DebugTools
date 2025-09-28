@@ -3,11 +3,11 @@ using UnityEditor;
 
 
 
-namespace HierarchyFocusedDebugConsole {
+namespace HierarchicalDebugTools {
 
     public static class OptionsMenu {
 
-        private const string BaseMenu = "Tools/Hierarchy Focused Debug Console/";
+        private const string BaseMenu = "Tools/Hierarchical Debug Tools/";
 
 
 

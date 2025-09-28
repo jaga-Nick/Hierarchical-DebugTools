@@ -1,5 +1,5 @@
 {
-    "name": "HierarchyFocusedDebugConsole.Editor",
+    "name": "HierarchicalDebugTools.Editor",
     "rootNamespace": "",
     "references": [],
     "includePlatforms": [

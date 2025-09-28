@@ -2,7 +2,7 @@ using UnityEngine;
 
 
 
-namespace HierarchyFocusedDebugConsole {
+namespace HierarchicalDebugTools {
 
     public class LogGenerator : MonoBehaviour {
 

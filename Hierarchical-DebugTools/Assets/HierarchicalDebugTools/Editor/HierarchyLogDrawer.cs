@@ -3,7 +3,7 @@ using UnityEditor;
 
 
 
-namespace HierarchyFocusedDebugConsole {
+namespace HierarchicalDebugTools {
 
     [InitializeOnLoad]
     public static class HierarchyLogDrawer {

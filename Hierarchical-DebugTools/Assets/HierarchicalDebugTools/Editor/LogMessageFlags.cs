@@ -4,7 +4,7 @@ using System;
 
 
 
-namespace HierarchyFocusedDebugConsole {
+namespace HierarchicalDebugTools {
 
     [Flags]
     public enum LogMessageFlags : int {

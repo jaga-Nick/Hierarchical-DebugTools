@@ -5,7 +5,7 @@ using UnityEditor;
 
 
 
-namespace HierarchyFocusedDebugConsole {
+namespace HierarchicalDebugTools {
 
     public class DebugConsoleWindow : EditorWindow  {
 

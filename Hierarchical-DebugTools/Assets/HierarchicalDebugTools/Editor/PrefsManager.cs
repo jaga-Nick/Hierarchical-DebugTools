@@ -3,11 +3,11 @@ using UnityEditor;
 
 
 
-namespace HierarchyFocusedDebugConsole {
+namespace HierarchicalDebugTools {
 
     public static class PrefsManager {
 
-        private const string BaseKey = "HierarchyFocusedDebugConsole/";
+        private const string BaseKey = "HierarchicalDebugTools/";
         private const string EnabledKey = BaseKey + "Enabled";
         private const string PriorityKey = BaseKey + "Priority";
         private const string AlignmetKey = BaseKey + "Alignment";

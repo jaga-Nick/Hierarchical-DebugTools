@@ -1,4 +1,4 @@
-namespace HierarchyFocusedDebugConsole {
+namespace HierarchicalDebugTools {
 
     public struct ConsoleLog {
 
