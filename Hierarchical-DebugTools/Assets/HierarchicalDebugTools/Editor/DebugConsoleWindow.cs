@@ -226,28 +226,28 @@ namespace HierarchicalDebugTools {
         private void DisplayMessage(ConsoleLog log, int index, bool[] isFoldout) {
             EditorGUILayout.BeginHorizontal();
 
-            // Foldout button
+            // 展開ボタン
             Texture icon = isFoldout[index] ? IconManager.FoldoutIconOn : IconManager.FoldoutIconOff;
             if (GUILayout.Button(icon, EditorStyles.label, GUILayout.Width(15f), GUILayout.Height(45f)))
                 isFoldout[index] = !isFoldout[index];
 
             GUILayout.Space(7);
 
-            // Message as button
+            // ボタンとしてのメッセージ
             string firstLine = log.Callstack.Split('\n')[0];
             string text = "<size=13>" + log.Message + "</size>\n" + firstLine;
             GUIContent content = new(text, GetIcon(log), "Click to show callstack.");
             if (GUILayout.Button(content, _messageStyle, GUILayout.MinHeight(45f), GUILayout.ExpandWidth(true)))
                 isFoldout[index] = !isFoldout[index];
 
-            // Copy button for message
+            // メッセージのコピーボタン
             content = new GUIContent("Copy", "Copy message to clipboard.");
             if (GUILayout.Button(content, GUILayout.Width(45f), GUILayout.Height(35f)))
                 EditorGUIUtility.systemCopyBuffer = log.Message;
 
             GUILayout.Space(7);
 
-            // Open button
+            // 開くボタン
             content = new GUIContent("Open", "Open related script in editor.");
             if (GUILayout.Button(content, GUILayout.Width(45f), GUILayout.Height(35f)))
                 OpenFile(log.File, log.Line, log.Column);
@@ -262,10 +262,10 @@ namespace HierarchicalDebugTools {
 
             GUILayout.Space(30f);
 
-            // Callstack label
+            // コールスタックラベル
             EditorGUILayout.SelectableLabel(log.Callstack, _callstackStyle);
 
-            // Copy button for callstack
+            // コールスタックのコピーボタン
             GUIContent content = new ("Copy Callstack", "Copy callstack to clipboard.");
             if (GUILayout.Button(content, GUILayout.Width(100f), GUILayout.Height(25f)))
                 EditorGUIUtility.systemCopyBuffer = log.Callstack;
@@ -287,13 +287,13 @@ namespace HierarchicalDebugTools {
 
 
         private void OpenFile (string file, int line, int column) {
-            // Get LogEntries class from UnityEditor assembly using reflection.
+            // リフレクションを使用してUnityEditorアセンブリからLogEntriesクラスを取得します。
             Assembly assembly = Assembly.GetAssembly(typeof(SceneView));
             Type logEntries = assembly.GetType("UnityEditor.LogEntries");
 
-            // Get log entries count on the console.
-            MethodInfo OpenFileOnSpecificLineAndColumn = logEntries.GetMethod("OpenFileOnSpecificLineAndColumn"); // This method is used to open a file at a specific line and column.
-            OpenFileOnSpecificLineAndColumn.Invoke(null, new object[] { file, line, column }); // Invoke the method with the file, line, and column as parameters.
+            // コンソール上のログエントリ数を取得します。
+            MethodInfo OpenFileOnSpecificLineAndColumn = logEntries.GetMethod("OpenFileOnSpecificLineAndColumn"); // このメソッドは、特定の行と列でファイルを開くために使用されます。
+            OpenFileOnSpecificLineAndColumn.Invoke(null, new object[] { file, line, column }); // ファイル、行、列をパラメータとしてメソッドを呼び出します。
         }
 
 
@@ -329,13 +329,13 @@ namespace HierarchicalDebugTools {
 
 
         private void ClearLogs() {
-            // Get LogEntries class from UnityEditor assembly using reflection.
+            // リフレクションを使用してUnityEditorアセンブリからLogEntriesクラスを取得します。
             Assembly assembly = Assembly.GetAssembly(typeof(SceneView));
             Type logEntries = assembly.GetType("UnityEditor.LogEntries");
 
-            // Get log entries count on the console.
-            MethodInfo Clear = logEntries.GetMethod("Clear"); // This method is used to open a file at a specific line and column.
-            Clear.Invoke(null, null); // Invoke the method
+            // コンソール上のログエントリ数を取得します。
+            MethodInfo Clear = logEntries.GetMethod("Clear"); // このメソッドは、特定の行と列でファイルを開くために使用されます。
+            Clear.Invoke(null, null); // メソッドを呼び出します。
         }
 
 

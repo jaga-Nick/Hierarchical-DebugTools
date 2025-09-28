@@ -16,21 +16,21 @@ namespace HierarchicalDebugTools {
 
 
 
-        // Constructor will be called every time when Unity Editor is loaded or scripts are compiled because of [InitializeOnLoad] attribute.
+        // [InitializeOnLoad]属性のため、コンストラクタはUnityエディタがロードされるか、スクリプトがコンパイルされるたびに呼び出されます。
         static HierarchyLogDrawer() {
             GetPrefs();
             if (!_enabled)
                 return;
 
-            // Every time scripts are compiled, the constructor will be called.
-            // So, first remove the previous delegates to avoid multiple calls.
+            // スクリプトがコンパイルされるたびに、コンストラクタが呼び出されます。
+            // したがって、まず以前のデリゲートを削除して、複数回の呼び出しを回避します。
             EditorApplication.hierarchyWindowItemOnGUI -= HierarchyWindowItemOnGUI;
             ConsoleWindowUtility.consoleLogsChanged -= OnConsoleLogsChanged;
             PrefsManager.OnEnabledChanged -= GetPrefs;
             PrefsManager.OnAlignmentChanged -= GetPrefs;
             PrefsManager.OnPriorityChanged -= GetPrefs;
 
-            // Then, add new delegates to the events.
+            // 次に、イベントに新しいデリゲートを追加します。
             EditorApplication.hierarchyWindowItemOnGUI += HierarchyWindowItemOnGUI;
             ConsoleWindowUtility.consoleLogsChanged += OnConsoleLogsChanged;
             PrefsManager.OnEnabledChanged += GetPrefs;
@@ -121,7 +121,7 @@ namespace HierarchicalDebugTools {
                     hasLog = true;
             }
 
-            // If error priority is true, then error icon will be shown first
+            // エラーの優先度が高い場合、エラーアイコンが最初に表示されます
             if (isErrorPriority) {
                 if (hasError)
                     return IconManager.ErrorIconSmall;
@@ -130,7 +130,7 @@ namespace HierarchicalDebugTools {
                 else
                     return IconManager.InfoIconSmall;
 
-            // Otherwise log icon will be shown first.
+            // そうでない場合、ログアイコンが最初に表示されます。
             } else {
                 if (hasLog)
                     return IconManager.InfoIconSmall;
